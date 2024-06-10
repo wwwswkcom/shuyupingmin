@@ -1,16 +1,15 @@
 <template>
-  <div :class="{'has-logo':showLogo}">
-    <logo v-if="showLogo" :collapse="isCollapse" />
+  <div>
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
-        :default-active="activeMenu"
-        :collapse="isCollapse"
-        :background-color="variables.menuBg"
-        :text-color="variables.menuText"
-        :unique-opened="false"
-        :active-text-color="variables.menuActiveText"
-        :collapse-transition="false"
-        mode="vertical"
+          class="custom-menu"
+          mode="horizontal"
+          :default-active="activeMenu"
+          :collapse="isCollapse"
+          :background-color="variables.menuBg"
+          :text-color="variables.menuText"
+          :active-text-color="variables.menuActiveText"
+          :collapse-transition="false"
       >
         <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />
       </el-menu>
@@ -54,3 +53,30 @@ export default {
   }
 }
 </script>
+<style>
+/* 设置自定义菜单样式 */
+.custom-menu {
+  --menu-line-color: #f00; /* 修改为你想要的颜色 */
+  --menu-line-height: 2px; /* 修改为你想要的高度 */
+}
+
+/* 覆盖Element UI的默认分隔线样式 */
+.custom-menu .el-menu-item {
+  position: relative;
+}
+
+.custom-menu .el-menu-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: var(--menu-line-height);
+  background-color: var(--menu-line-color);
+  transition: all 0.3s;
+}
+
+.custom-menu .el-menu-item:last-child::after {
+  display: none; /* 移除最后一个项目的分隔线 */
+}
+</style>

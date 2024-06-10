@@ -1,41 +1,22 @@
 <template>
   <div class="navbar">
-<!--    <div class="left-logo">-->
-<!--      <img src="https://srm.sdyanxitang.com/ELSServer_YXT/login/images/els-logo.png">-->
-<!--    </div>-->
-<!--    <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />-->
 
-    <breadcrumb class="breadcrumb-container" />
-
+    <img id="imgLogo" src="http://60.217.250.254:8765/Images/Logo/4009378885960.png"
+         style="border-width:0px;height:45px;width:200px;">
+    <div class="nav-title">
+      <h1>SAP业务协作平台</h1>
+    </div>
     <div class="right-menu">
-      <el-dropdown class="avatar-container" trigger="click">
-        <div class="avatar-wrapper">
-          <img src="@/assets/img/userinfo.png" class="user-avatar">
-          <i class="el-icon-caret-bottom" />
-        </div>
-        <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <!-- <router-link to="/">
-            <el-dropdown-item>
-              Home
-            </el-dropdown-item>
-          </router-link> -->
-          <!-- <a target="_blank" href="https://github.com/PanJiaChen/vue-admin-template/">
-            <el-dropdown-item>Github</el-dropdown-item>
-          </a> -->
-          <!-- <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">
-            <el-dropdown-item>Docs</el-dropdown-item>
-          </a> -->
-          <el-dropdown-item @click.native="logout">
-            <span style="display:block;">退出</span>
-          </el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+      <span style="position: relative; display: block;">
+                            欢迎<b>【西藏神威药业有限公司】</b>使用！
+          <a href="#" name="header" @click=logout style="margin-left: 20px;">退 出</a>
+        </span>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import {mapGetters} from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 
@@ -67,83 +48,30 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
-  height: 50px;
-  overflow: hidden;
+  height: 60px;
   position: relative;
-  background: white;
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  background: #465C71;
+  flex-direction: row;
+  display: flex; /* 启用 Flexbox 布局 */
+  align-items: center; /* 垂直居中 */
 
-  .hamburger-container {
-    line-height: 46px;
-    height: 100%;
-    float: left;
-    cursor: pointer;
-    transition: background .3s;
-    -webkit-tap-highlight-color:transparent;
-
-    &:hover {
-      background: rgba(0, 0, 0, .025)
-    }
-  }
-
-  .breadcrumb-container {
-    float: left;
+  .nav-title {
+    flex-grow: 1;
+    /*font-size: 1.1em;*/
+    display: block;
+    text-align: left;
+    color: White;
+    margin-left: 30px;
   }
 
   .right-menu {
     float: right;
-    height: 100%;
-    line-height: 50px;
-
-    &:focus {
-      outline: none;
-    }
-
-    .right-menu-item {
-      display: inline-block;
-      padding: 0 8px;
-      height: 100%;
-      font-size: 18px;
-      color: #5a5e66;
-      vertical-align: text-bottom;
-
-      &.hover-effect {
-        cursor: pointer;
-        transition: background .3s;
-
-        &:hover {
-          background: rgba(0, 0, 0, .025)
-        }
-      }
-    }
-
-    .avatar-container {
-      margin-right: 30px;
-
-      .avatar-wrapper {
-        margin-top: 5px;
-        position: relative;
-
-        .user-avatar {
-          cursor: pointer;
-          width: 40px;
-          height: 40px;
-          border-radius: 10px;
-        }
-
-        .el-icon-caret-bottom {
-          cursor: pointer;
-          position: absolute;
-          right: -20px;
-          top: 25px;
-          font-size: 12px;
-        }
-      }
-    }
+    /*font-size: 1.1em;*/
+    display: block;
+    text-align: right;
+    color: White;
+    margin-right: 30px;
   }
 }
-.left-logo {
-  height: 80%;
-  float: left;
-}
+
 </style>

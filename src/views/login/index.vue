@@ -1,62 +1,62 @@
 <template>
   <div class="container">
     <div class="login-container">
+      <div class="navbar">
+
+        <img id="imgLogo" src="http://60.217.250.254:8765/Images/Logo/4009378885960.png"
+             style="border-width:0px;height:45px;width:200px;">
+        <div class="nav-title">
+          <h1>SAP业务协作平台</h1>
+        </div>
+        <div class="right-menu">
+      <span style="position: relative; display: block;">
+                            欢迎<b></b>使用！
+        </span>
+        </div>
+      </div>
+      <div class="title-container">
+        <h2 class="title">登录</h2>
+        <p class="content">请输入登录账号和密码；如果您遗忘或丢失了帐户或密码，请与管理人员联系。</p>
+      </div>
       <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on"
                label-position="left">
+        <p class="title">登录账号：</p>
+<!--        <el-form-item prop="loginname">-->
 
-        <div class="title-container">
-          <h3 class="title">后台登录</h3>
-        </div>
-
-        <el-form-item prop="loginname">
-        <span class="svg-container">
-          <svg-icon icon-class="user"/>
-        </span>
           <el-input
               ref="loginname"
               v-model="loginForm.loginname"
-              placeholder="请输入企业账号"
+              placeholder="请输入账号"
               name="loginname"
               type="text"
               tabindex="1"
               auto-complete="on"
+              class="custom-input-border"
           />
-        </el-form-item>
-        <el-form-item prop="loginperson">
-        <span class="svg-container">
-          <svg-icon icon-class="user"/>
-        </span>
-          <el-input
-              ref="loginperson"
-              v-model="loginForm.loginperson"
-              placeholder="请输入个人账号"
-              name="loginperson"
-              type="text"
-              tabindex="1"
-              auto-complete="on"
-          />
-        </el-form-item>
-        <el-form-item prop="password">
-        <span class="svg-container">
-          <svg-icon icon-class="password"/>
-        </span>
+<!--        </el-form-item>-->
+        <p class="title">登录密码：</p>
+<!--        <el-form-item prop="password">-->
+
           <el-input
               :key="passwordType"
               ref="password"
               v-model="loginForm.password"
               :type="passwordType"
               placeholder="请输入密码"
+              class="custom-input-border"
               name="password"
               tabindex="2"
               auto-complete="on"
               @keyup.enter.native="handleLogin"
           />
-          <span class="show-pwd" @click="showPwd">
-          <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"/>
-        </span>
-        </el-form-item>
+<!--          <span class="show-pwd" @click="showPwd">-->
+<!--          <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"/>-->
+<!--        </span>-->
+<!--        </el-form-item>-->
 
-        <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;"
+        <p >用户类型：供应商</p>
+
+        <el-button :loading="loading" type="primary" style="width:80px;margin-bottom:30px;  background-color: #5774b0;"
                    @click.native.prevent="handleLogin">登录
         </el-button>
 
@@ -74,9 +74,11 @@
 // import { validUsername } from '@/utils/validate'
 // import {login} from "@/api/user"
 import {setToken} from '@/utils/auth'
+import {Navbar} from "@/layout/components";
 
 export default {
   name: 'Login',
+  components: {Navbar},
   data() {
     const validateUsername = (rule, value, callback) => {
       callback()
@@ -87,7 +89,7 @@ export default {
 
     const validatePassword = (rule, value, callback) => {
       if (value.length < 4) {
-        callback(new Error('密码输入错误'))
+        // callback(new Error('密码输入错误'))
       } else {
         callback()
       }
@@ -101,7 +103,6 @@ export default {
       loginRules: {
         loginname: [{required: true, trigger: 'blur', validator: validateUsername}],
         password: [{required: true, trigger: 'blur', validator: validatePassword}],
-        loginperson: [{required: true, trigger: 'blur', validator: validateUsername}],
       },
       loading: false,
       passwordType: 'password',
@@ -131,8 +132,8 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          if (this.loginForm.loginname == "307814") {
-            if ((this.loginForm.loginperson == '0' && this.loginForm.password == "sw123") || this.loginForm.loginperson == '1' && this.loginForm.password == "sw246") {
+          if (this.loginForm.loginname == "1085") {
+            if (this.loginForm.password == "hbs202401") {
               this.loading = false
               setToken('1111');
               sessionStorage.setItem('ldzloginname', this.loginForm.loginname);
@@ -246,8 +247,7 @@ $light_gray: #eee;
     position: relative;
     width: 520px;
     max-width: 100%;
-    padding: 160px 35px 0;
-    margin: 0 auto;
+    padding: 30px 35px 0;
     overflow: hidden;
   }
 
@@ -272,14 +272,17 @@ $light_gray: #eee;
   }
 
   .title-container {
-    position: relative;
+    margin-left: 20px;
 
     .title {
       font-size: 26px;
-      color: $light_gray;
-      margin: 0px auto 40px auto;
-      text-align: center;
+      color: black;
       font-weight: bold;
+    }
+    .content {
+      font-size: 16px;
+      color: #696969;
+      margin-bottom: 10px;
     }
   }
 
@@ -321,4 +324,39 @@ logo
 .box {
   position: absolute;
 }
+
+.navbar {
+  height: 60px;
+  position: relative;
+  background: #465C71;
+  flex-direction: row;
+  display: flex; /* 启用 Flexbox 布局 */
+  align-items: center; /* 垂直居中 */
+
+  .nav-title {
+    flex-grow: 1;
+    /*font-size: 1.1em;*/
+    display: block;
+    text-align: left;
+    color: White;
+    margin-left: 30px;
+  }
+
+  .right-menu {
+    float: right;
+    /*font-size: 1.1em;*/
+    display: block;
+    text-align: right;
+    color: White;
+    margin-right: 30px;
+  }
+}
+
+
+/* 修改边框的选择器需要匹配你的组件结构 */
+.custom-input-border  {
+  border: 1px solid #d3dce6; /* 修改边框颜色 */
+  width: 200px; /* 修改宽度 */
+}
+
 </style>

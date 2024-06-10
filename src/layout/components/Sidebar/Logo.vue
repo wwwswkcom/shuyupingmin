@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       title: '',
-      logo: 'https://srm.sdyanxitang.com/ELSServer_YXT/login/images/els-logo.png'
+      logo: '`http://60.217.250.254:8765/Images/Logo/4009378885960.png`'
     }
   }
 }

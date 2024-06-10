@@ -6,7 +6,7 @@
       :inline="inline"
       ref="form"
       class="className"
-      :model="data"
+      :model="date"
     >
       <el-row :gutter="10">
         <el-col
@@ -142,22 +142,24 @@
             >
           </el-form-item>
         </el-col>
-      </el-row>
-      <div>
-        <el-form-item v-for="(item, index) in formConfig.operate" :key="index">
-          <el-button
-            class="mt"
-            v-if="item.authBtn && item.type === 'button'"
-            :type="item.value"
-            :size="item.size"
-            @click="item.handleClick"
+        <div>
+          <el-form-item v-for="(item, index) in formConfig.operate" :key="index">
+            <el-button
+                style="color: white; background-color: #5774b0;"
+                class="mt"
+                v-if="item.authBtn && item.type === 'button'"
+                :type="item.value"
+                :size="item.size"
+                @click="item.handleClick"
             >{{ item.name }}</el-button
-          >
-          <template v-if="item.authBtn && item.type === 'slot'">
-            <slot :name="'form-' + item.value"> </slot>
-          </template>
-        </el-form-item>
-      </div>
+            >
+            <template v-if="item.authBtn && item.type === 'slot'">
+              <slot :name="'form-' + item.value"> </slot>
+            </template>
+          </el-form-item>
+        </div>
+      </el-row>
+
     </el-form>
   </div>
 </template>
@@ -202,7 +204,7 @@ export default {
   margin-bottom: 20px;
 }
 .mt {
-  margin-bottom: 10px;
+  //margin-bottom: 10px;
 }
 </style>
 <style>
