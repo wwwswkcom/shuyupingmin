@@ -3,7 +3,7 @@
     <div class="login-container">
       <div class="navbar">
 
-        <img id="imgLogo" src="http://60.217.250.254:8765/Images/Logo/4009378885960.png"
+        <img id="imgLogo" src="@/assets/img/shu_logo.png"
              style="border-width:0;height:45px;width:200px;" >
         <div class="nav-title">
           <h1>SAP业务协作平台</h1>
