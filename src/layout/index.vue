@@ -5,6 +5,12 @@
     <navbar/>
     <sidebar class="sidebar-container"/>
     <app-main/>
+    <p class="bottom-tip">
+      版权所有：漱玉平民 Copyright ©  2014. All Rights Reserved.
+    </p>
+    <p class="bottom-tip">
+      地址：山东省济南市历城区山大北路56号  电话：0531-66898931
+    </p>
   </div>
 </template>
 
@@ -68,6 +74,12 @@ export default {
   position: absolute;
   z-index: 999;
 }
+.bottom-tip{
+  width: 100%;
+  font-size: 12px;
+  color: #000000;
+  text-align: center;
 
+}
 
 </style>

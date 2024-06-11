@@ -258,7 +258,7 @@ $light_gray: #eee;
 
     .title {
       font-size: 26px;
-      color: black;
+      color: #666666;
       font-weight: bold;
     }
     .content {
