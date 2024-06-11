@@ -165,6 +165,8 @@
 </template>
 
 <script>
+import {date} from "mockjs/src/mock/random/date";
+
 export default {
   props: {
     data: {
@@ -186,6 +188,7 @@ export default {
   },
   created() {},
   methods: {
+    date,
     search() {
       this.$emit("search", data);
     },

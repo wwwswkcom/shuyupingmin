@@ -193,9 +193,6 @@ $cursor: #000;
   background: $bg !important;
 }
 
-input:-internal-autofill-selected {
-  background-color: $bg !important;
-}
 
 /* reset element-ui css */
 .login-container {
