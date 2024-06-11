@@ -4,7 +4,7 @@
       <div class="navbar">
 
         <img id="imgLogo" src="http://60.217.250.254:8765/Images/Logo/4009378885960.png"
-             style="border-width:0px;height:45px;width:200px;">
+             style="border-width:0;height:45px;width:200px;" >
         <div class="nav-title">
           <h1>SAP业务协作平台</h1>
         </div>
@@ -83,9 +83,6 @@ export default {
     const validateUsername = (rule, value, callback) => {
       callback()
     }
-    const validateLoginperson = (rule, value, callback) => {
-      callback()
-    }
 
     const validatePassword = (rule, value, callback) => {
       if (value.length < 4) {
@@ -98,7 +95,6 @@ export default {
       loginForm: {
         loginname: '',
         password: '',
-        loginperson: '',
       },
       loginRules: {
         loginname: [{required: true, trigger: 'blur', validator: validateUsername}],
@@ -118,26 +114,16 @@ export default {
     }
   },
   methods: {
-    showPwd() {
-      if (this.passwordType === 'password') {
-        this.passwordType = ''
-      } else {
-        this.passwordType = 'password'
-      }
-      this.$nextTick(() => {
-        this.$refs.password.focus()
-      })
-    },
+
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          if (this.loginForm.loginname == "1085") {
-            if (this.loginForm.password == "hbs202401") {
+          if (this.loginForm.loginname === "1085") {
+            if (this.loginForm.password === "hbs202401") {
               this.loading = false
               setToken('1111');
               sessionStorage.setItem('ldzloginname', this.loginForm.loginname);
-              sessionStorage.setItem('loginperson', this.loginForm.loginperson);
               this.$router.push({path: this.redirect || '/'})
 
             } else {
@@ -202,18 +188,17 @@ $cursor: #000;
     width: 85%;
 
     input {
-      background: transparent;
-      border: 0px;
+      border: 0;
       -webkit-appearance: none;
-      border-radius: 0px;
+      border-radius: 0;
       padding: 12px 5px 12px 15px;
       color: #000;
       height: 47px;
       caret-color: $cursor;
-      background-color: transparent;
+      background: transparent;
 
       &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px $bg inset !important;
+        box-shadow: 0 0 0 1000px $bg inset !important;
         -webkit-text-fill-color: #000 !important;
         // color: #000;
       }
@@ -296,19 +281,7 @@ $light_gray: #eee;
 </style>
 
 <style>
-/**
-logo
- */
-.login_logo {
-  margin: 10px 0 10px 5%;
-  margin-top: 10px;
-  margin-right: 0px;
-  margin-bottom: 10px;
-  margin-left: 5%;
-  height: 50px;
-  float: left;
-  width: 80%;
-}
+
 
 /* 定义外部容器 */
 .container {
@@ -317,10 +290,6 @@ logo
   width: 100%;
 }
 
-/* 定义要重叠的元素 */
-.box {
-  position: absolute;
-}
 
 .navbar {
   height: 60px;
