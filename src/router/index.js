@@ -134,7 +134,7 @@ export const constantRoutes = [
       {
         path: 'pull',
         name: 'userpull',
-        component: () => import('@/views/noquanxian.vue'),
+        component: () => import('@/views/xiaoshou/index.vue'),
         meta: { title: '商品销售查询', icon: 'el-icon-folder' }
       },
       {

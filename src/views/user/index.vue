@@ -1,5 +1,10 @@
 <template>
   <div class="app-container">
+    <h2>商品配送查询</h2>
+    <p>
+      受数据传输影响，个别客户的销售数据可能出现微小差异，结算以财务数据为准。</p>
+    <p>
+      本系统数据自2015年5月10日起进入开发测试，前期数据无法读出，请注意您查询时间段的选取。</p>
     <commonForm :inline="true" :data="getInfoData" :formConfig="formConfig">
     </commonForm>
     <JsonExcel
