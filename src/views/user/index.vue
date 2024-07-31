@@ -168,9 +168,9 @@ export default {
           const wsname = workbook.SheetNames[0]// 取第一张表
           this.alldata = XLSX.utils.sheet_to_json(workbook.Sheets[wsname])// 生成json表格内容
           console.log(this.alldata);
-          // for(let i = 0 ;i<this.alldata.length;i++){
-          //   this.alldata[i]['查询起始日期'] = this.formatDate(this.alldata[i]['查询起始日期'],'-');
-          // }
+          for(let i = 0 ;i<this.alldata.length;i++){
+            this.alldata[i]['查询结束日期'] = this.formatDate(this.alldata[i]['查询结束日期'],'-');
+          }
           // this.downloaddata = this.alldata;
           // this.tabData = this.alldata.slice(0,this.getInfoData.limit)
           // this.total = this.alldata.length
