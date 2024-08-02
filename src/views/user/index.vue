@@ -33,10 +33,6 @@
           label="查询起始日期"
       ></el-table-column>
       <el-table-column
-          prop="查询结束日期"
-          label="查询结束日期"
-      ></el-table-column>
-      <el-table-column
           prop="公司编码"
           width="90"
           label="公司编码"
@@ -92,7 +88,6 @@ export default {
     return {
       json_fields: {
         "查询起始日期": "查询起始日期",    //常规字段
-        "查询结束日期": "查询结束日期", //支持嵌套属性
         "公司编码": "公司编码",    //常规字段
         "公司名称": "公司名称",    //常规字段
         "门店名称": "门店名称",    //常规字段
@@ -168,9 +163,9 @@ export default {
           const wsname = workbook.SheetNames[0]// 取第一张表
           this.alldata = XLSX.utils.sheet_to_json(workbook.Sheets[wsname])// 生成json表格内容
           console.log(this.alldata);
-          for(let i = 0 ;i<this.alldata.length;i++){
-            this.alldata[i]['查询结束日期'] = this.formatDate(this.alldata[i]['查询结束日期'],'-');
-          }
+          // for(let i = 0 ;i<this.alldata.length;i++){
+          //   this.alldata[i]['查询结束日期'] = this.formatDate(this.alldata[i]['查询结束日期'],'-');
+          // }
           // this.downloaddata = this.alldata;
           // this.tabData = this.alldata.slice(0,this.getInfoData.limit)
           // this.total = this.alldata.length
@@ -188,7 +183,7 @@ export default {
         let searchList = [];
         // debugger
         for (let i = 0; i < this.alldata.length; i++) {
-          if (this.getInfoData.startStartTime <= this.alldata[i]['查询起始日期'] && this.alldata[i]['查询起始日期'] < this.getInfoData.endStartTime) {
+          if (this.getInfoData.startStartTime <= this.alldata[i]['查询起始日期'] && this.alldata[i]['查询起始日期'] <= this.getInfoData.endStartTime) {
             searchList.push(this.alldata[i])
           }
         }

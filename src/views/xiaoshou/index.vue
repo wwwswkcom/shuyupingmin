@@ -47,10 +47,6 @@
           prop="公司名称"
           label="公司名称"
       />
-      <el-table-column
-          prop="实际区域"
-          label="实际区域"
-      />
       <el-table-column prop="生产批号" label="生产批号"/>
       <el-table-column label="门店名称" prop="门店名称"/>
       <el-table-column label="品名"  prop="品名"/>
@@ -58,9 +54,7 @@
           prop="规格"
           label="规格"
       />
-      <el-table-column label="生产单位" min-width="50" prop="生产单位"/>
-      <el-table-column label="生产日期" min-width="50" prop="生产日期"/>
-      <el-table-column label="有效期至" min-width="50" prop="有效期至"/>
+      <el-table-column label="生产单位" min-width="150" prop="生产单位"/>
       <el-table-column label="数量" min-width="50" z prop="数量"/>
       <el-table-column label="零售总额" prop="零售总额"/>
 
@@ -96,16 +90,12 @@ export default {
         "销售日期": "销售日期",    //常规字段
         "公司编码": "公司编码",    //常规字段
         "公司名称": "公司名称",    //常规字段
-        "实际区域": "实际区域",    //常规字段
         "生产批号": "生产批号",    //常规字段
         "门店名称": "门店名称",    //常规字段
         "品名": "品名",    //常规字段
         "规格": "规格",
         "生产单位": "生产单位", //常规字段
-        "生产日期": "生产日期",    //常规字段
-        "	有效期至": "有效期至",    //常规字段
         "数量": "数量",    //常规字段
-        "零售总额": "零售总额",    //常规字段
       },
       tabData: [],
       alldata: [],
@@ -192,7 +182,7 @@ export default {
         let searchList = [];
         // debugger
         for (let i = 0; i < this.alldata.length; i++) {
-          if (this.getInfoData.startStartTime <= this.alldata[i]['销售日期'] && this.alldata[i]['销售日期'] < this.getInfoData.endStartTime) {
+          if (this.getInfoData.startStartTime <= this.alldata[i]['销售日期'] && this.alldata[i]['销售日期'] <= this.getInfoData.endStartTime) {
             searchList.push(this.alldata[i])
           }
         }
