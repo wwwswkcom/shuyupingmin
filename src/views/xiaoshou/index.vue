@@ -29,11 +29,6 @@
 
     >
       <el-table-column
-          min-width="30"
-          prop="序号"
-          label="序号"
-      />
-      <el-table-column
           prop="销售日期"
           label="销售日期"
       />
@@ -56,7 +51,6 @@
       />
       <el-table-column label="生产单位" min-width="150" prop="生产单位"/>
       <el-table-column label="数量" min-width="50" z prop="数量"/>
-      <el-table-column label="零售总额" prop="零售总额"/>
 
     </el-table>
     <!--分页器-->
@@ -86,7 +80,6 @@ export default {
   data() {
     return {
       json_fields: {
-        "序号":"序号",
         "销售日期": "销售日期",    //常规字段
         "公司编码": "公司编码",    //常规字段
         "公司名称": "公司名称",    //常规字段
