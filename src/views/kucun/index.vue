@@ -150,24 +150,9 @@ export default {
       xhr.send()
     },
     gitList(){
-      if(this.getInfoData.startDelTime && this.getInfoData.startDelTime.length > 0){
-        this.getInfoData.startStartTime = this.getInfoData.startDelTime ? this.getInfoData.startDelTime[0] : "";
-        this.getInfoData.endStartTime = this.getInfoData.startDelTime ? this.getInfoData.startDelTime[1] : "";
-        let searchList = [];
-        debugger
-        for(let i = 0;i<this.alldata.length;i++){
-            searchList.push(this.alldata[i])
-        }
-        this.downloaddata = searchList;
-        this.total = searchList
-        this.tabData = searchList.slice((this.getInfoData.offset-1)*this.getInfoData.limit,this.getInfoData.offset*this.getInfoData.limit)
-      }else{
-        this.downloaddata = [];
-        this.total = 0
-        this.tabData = []
-      }
-      //
-
+        this.downloaddata = this.alldata;
+        this.total = this.alldata
+        this.tabData = this.alldata.slice((this.getInfoData.offset-1)*this.getInfoData.limit,this.getInfoData.offset*this.getInfoData.limit)
     },
     formatDate(numb, format) {
       const old = numb - 1;
