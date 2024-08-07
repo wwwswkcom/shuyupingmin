@@ -143,7 +143,9 @@ export default {
           // this.tabData = this.alldata.slice(0,this.getInfoData.limit)
           // this.total = this.alldata.length
           console.log(this.tabData.length);
-          this.gitList();
+          this.downloaddata = this.alldata;
+          this.total = this.alldata
+          this.tabData = this.alldata.slice((this.getInfoData.offset-1)*this.getInfoData.limit,this.getInfoData.offset*this.getInfoData.limit)
         }
         fileReader.readAsBinaryString(files[0])
       }
