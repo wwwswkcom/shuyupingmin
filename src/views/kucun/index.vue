@@ -155,6 +155,8 @@ export default {
         this.downloaddata = this.alldata;
         this.total = this.alldata
         this.tabData = this.alldata.slice((this.getInfoData.offset-1)*this.getInfoData.limit,this.getInfoData.offset*this.getInfoData.limit)
+      //
+
     },
     formatDate(numb, format) {
       const old = numb - 1;
