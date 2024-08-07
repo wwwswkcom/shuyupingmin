@@ -29,8 +29,8 @@
 
     >
       <el-table-column
-          prop="查询起始日期"
-          label="查询起始日期"
+          prop="日期"
+          label="日期"
       ></el-table-column>
       <el-table-column
           prop="公司编码"
@@ -87,7 +87,7 @@ export default {
   data() {
     return {
       json_fields: {
-        "查询起始日期": "查询起始日期",    //常规字段
+        "日期": "日期",    //常规字段
         "公司编码": "公司编码",    //常规字段
         "公司名称": "公司名称",    //常规字段
         "门店名称": "门店名称",    //常规字段
@@ -183,7 +183,7 @@ export default {
         let searchList = [];
         // debugger
         for (let i = 0; i < this.alldata.length; i++) {
-          if (this.getInfoData.startStartTime <= this.alldata[i]['查询起始日期'] && this.alldata[i]['查询起始日期'] <= this.getInfoData.endStartTime) {
+          if (this.getInfoData.startStartTime <= this.alldata[i]['日期'] && this.alldata[i]['日期'] <= this.getInfoData.endStartTime) {
             searchList.push(this.alldata[i])
           }
         }
