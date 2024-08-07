@@ -128,7 +128,7 @@ export const constantRoutes = [
       {
         path: 'index',
         name: 'userindex',
-        component: () => import('@/views/noquanxian.vue'),
+        component: () => import('@/views/kucun/index.vue'),
         meta: { title: '商品库存查询', icon: 'table' }
       },
       {
