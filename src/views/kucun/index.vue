@@ -144,7 +144,7 @@ export default {
           // this.total = this.alldata.length
           console.log(this.tabData.length);
           this.downloaddata = this.alldata;
-          this.total = this.alldata
+          this.total = this.alldata.length
           this.tabData = this.alldata.slice((this.getInfoData.offset-1)*this.getInfoData.limit,this.getInfoData.offset*this.getInfoData.limit)
         }
         fileReader.readAsBinaryString(files[0])
@@ -152,9 +152,15 @@ export default {
       xhr.send()
     },
     gitList(){
+      if(this.alldata){
         this.downloaddata = this.alldata;
-        this.total = this.alldata
+        this.total = this.alldata.length
         this.tabData = this.alldata.slice((this.getInfoData.offset-1)*this.getInfoData.limit,this.getInfoData.offset*this.getInfoData.limit)
+      }else{
+        this.downloaddata = [];
+        this.total = 0
+        this.tabData = []
+      }
       //
 
     },
